@@ -23,10 +23,7 @@ le_plus_petit = 0
 #end
 
 #def perform_size_5
-	Array_size_5 = Array_journalistes.select { |handle| handle.length == 6 }.size
-	puts Array_size_5
 	puts "Quelle est le handle le plus court de cette liste ?"
-	#puts "il y a #{Array_size_5.length} handle qui font 5 de long"
 	puts "il y a #{Array_journalistes.select { |handle| handle.length == 6 }.size} handle qui font 5 de long"
 #end
 
@@ -44,7 +41,18 @@ puts Array_journalistes.sort_by {|handle| handle.length}
 puts "Quelle est la position dans l'array de la personne @epenser"
 puts Array_journalistes.index('@epenser')
 
-puts
+puts "Sors-moi une répartition des handle par taille de ces derniers"
+taille_max = Array_journalistes.max_by {|handle| handle.length}.size
+taille_min = Array_journalistes.min_by {|handle| handle.length}.size
+puts taille_min
+puts taille_max
+
+while taille_min <= taille_max
+	if Array_journalistes.select { |handle| handle.length == taille_min}.size != 0
+		puts "il y a #{Array_journalistes.select { |handle| handle.length == taille_min}.size} qui on un handle de #{taille_min} caractères"
+	end	
+	taille_min += 1
+end
 #perform_cb_handle
 #perform_small_handle
 #perform_size_5
