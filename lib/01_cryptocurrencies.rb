@@ -4,9 +4,6 @@ array_value = ["6558.07", "468.95", "0.487526", "762.84", "8.86", "85.26", "0.15
 
 hash_money_value = array_money.zip(array_value).to_h
 
-
-#puts hash_money_value
-
 puts "La ou les crypto qui ont la plus grosse valeur."
 
 puts "reponse : #{hash_money_value.max_by{|devise, val| val.to_f}}"
